@@ -1,5 +1,5 @@
-import OrderComponent from './components/OrderComponent'
-import AdminOrderComponent from './components/AdminOrderComponent';
+import OrderComponent from './Components/OrderComponent'
+import AdminOrderComponent from './Components/AdminOrderComponent';
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 function App() {
   return (

@@ -1,16 +1,35 @@
 import { useState, useEffect } from "react";
 import "./order.css";
-import axios from "axios";
+import axios from 'axios';
 import "./secure.png";
 function OrderComponent() {
   
     const [orders,setOrders]=useState([])
   useEffect(() => {
     const fetchData=async ()=>{
-        const response=await axios.get("http://localhost:3001/orders")
-        setOrders(response.data);
-        console.log(response.data)
-        console.log(orders)
+        try{
+          console.log("hiiii")
+          
+          axios.get("http://localhost:3001/order/orders",{
+            headers: {
+              
+              Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+          })
+          .then((response)=>{
+            console.log("byee")
+            setOrders(response.data);
+            console.log(response.data)
+            console.log(orders)
+            
+          })
+          .catch(error=>{
+            console.error(error.response.data)
+          })
+        }
+        catch(error){
+          console.error(error)
+        }
     };
     fetchData()
     },[]);

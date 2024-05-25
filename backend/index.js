@@ -1,6 +1,8 @@
 const express=require('express');
 const app=express();
 const jwt=require('jsonwebtoken')
+const cors=require('cors')
+app.use(cors())
 
 //Environmental variables
 require('dotenv').config()
@@ -26,12 +28,12 @@ app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 
 //Routes
-app.use('/order',verifyToken,orderRoutes)
-app.use('/signup',userRoutes)
-app.use('/home',homeRoutes)
-app.use('/cart',verifyToken,cartRoutes)
+app.use('/order',orderRoutes)
+// app.use('/signup',userRoutes)
+// app.use('/home',homeRoutes)
+// app.use('/cart',verifyToken,cartRoutes)
 app.use('/login',loginRoutes)
-app.use('/admin',verifyToken,isAdmin,productRoutes)
+//app.use('/admin',verifyToken,isAdmin,productRoutes)
 app.get('/',(req,res)=>{
     res.status(200).send("Home page")
 })

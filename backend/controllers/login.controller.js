@@ -8,6 +8,7 @@ const checkUser=async(req,res)=>{
     try{
         const {email,password}=req.body;
         const user=await userModel.findOne({"email" : email})
+        const role=user.role
         //console.log(user)
         if(user && user.password===password){
 
@@ -16,7 +17,7 @@ const checkUser=async(req,res)=>{
                 loginModel.create({"email": email,"password" : password})
             jwt.sign({user},secret,(err,token)=>{
                 if(!err)
-                    res.status(200).json({token})
+                    res.status(200).json({token,role})
                 else
                     res.status(404).send(false)
             })
