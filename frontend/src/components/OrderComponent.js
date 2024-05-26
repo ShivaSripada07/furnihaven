@@ -9,7 +9,6 @@ function OrderComponent() {
     const fetchData=async ()=>{
         try{
           console.log("hiiii")
-          
           axios.get("http://localhost:3001/order/orders",{
             headers: {
               
@@ -17,14 +16,10 @@ function OrderComponent() {
             }
           })
           .then((response)=>{
-            console.log("byee")
-            setOrders(response.data);
-            console.log(response.data)
-            console.log(orders)
-            
+            setOrders(response.data)
           })
           .catch(error=>{
-            console.error(error.response.data)
+            console.error(error)
           })
         }
         catch(error){
@@ -36,7 +31,7 @@ function OrderComponent() {
 
   return (
     <>
-      <h1>THANKS FOR ORDERING</h1>
+      <h2 id="heading">THANKS FOR ORDERING</h2>
       <hr />
       <div className="order-container">
         {console.log(orders)}

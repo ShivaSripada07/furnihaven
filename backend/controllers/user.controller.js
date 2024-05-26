@@ -5,6 +5,7 @@ const secret=process.env.secret
 
 const saveUser=async(req,res)=>{
     const user=req.body
+    console.log(user)
     try{
         const existingUser=await userModel.findOne({"email" : user.email})
         

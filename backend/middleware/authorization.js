@@ -4,7 +4,7 @@ const secret=process.env.SECRET
 
 const verifyToken= async (req,res,next)=>{
     try{
-        
+        console.log(req.headers.authorization)
         const token=req.headers.authorization.split(" ")[1]
     //console.log(req.headers)
     //console.log(token)
