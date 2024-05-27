@@ -9,8 +9,8 @@ function LoginComponent()
 {  
     const navigate=useNavigate();
     const [token,setToken]=useState()
-    const handleLogin = async () => {
-        
+    console.log(token);
+    const handleLogin = async () => {   
         const response = await axios.post("http://localhost:3001/login", {
           email: document.getElementById("email").value,
           password: document.getElementById("password").value,
@@ -18,8 +18,9 @@ function LoginComponent()
         if (response.status === 200) {
           localStorage.setItem("token", response.data.token);
           localStorage.setItem("role", response.data.role);
+          localStorage.setItem("name",response.data.name);
           setToken(response.data.token);
-          navigate((response.data.role==="admin") ? "/admindashboard" : "/dashboard");
+          navigate(response.data.role === "admin" ? '/admindashboard' : '/dashboard/');
         } else {
           navigate("/signup");
         }

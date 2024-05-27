@@ -15,10 +15,12 @@ function AdminDashComponent()
       };
       fetchData()
       },[product]);
+	  const name=localStorage.getItem("name");
     return(
         <>
         <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" /> 
         <div className="headertag">
+			<h2 style={{marginRight:"13.5rem",marginLeft:"1rem"}}><i class="bi bi-person-fill" ></i> Welcome {name}</h2>
             <img src={require('./logo.png')} alt="logo" width="60px" height="50px"/>
             <h1 className="title">FurniHaven</h1>
         </div>

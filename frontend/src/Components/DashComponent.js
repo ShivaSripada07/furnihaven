@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { useNavigate } from 'react-router-dom';
 function DashComponent()
 {
+    const name=localStorage.getItem("name");
     const [product,setProduct]=useState([])
     useEffect(() => {
       const fetchData=async ()=>{
@@ -17,7 +18,6 @@ function DashComponent()
       fetchData()
       },[product]);
     const navigate=useNavigate()
-
     const handleLogout=()=>{
         localStorage.removeItem("token")
         localStorage.removeItem("role")
@@ -29,6 +29,7 @@ function DashComponent()
         <>
         <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" /> 
         <div className="headertag">
+            <h2 style={{marginRight:"17.5rem",marginLeft:"1rem",alignItems:"flex-end"}}><i class="bi bi-person-fill"></i> Welcome {name}</h2>
             <img src={require('./logo.png')} alt="logo" width="60px" height="50px"/>
             <h1 className="title">FurniHaven</h1>
         </div>

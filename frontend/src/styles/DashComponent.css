@@ -8,9 +8,8 @@
 {
     width:100%;
     display: flex;
-    align-items: center;
+    align-items:flex-start;
 	margin-top:3px;
-	justify-content: center;
 }
 .tag
 {

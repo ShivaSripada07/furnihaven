@@ -9,6 +9,7 @@ const checkUser=async(req,res)=>{
         const {email,password}=req.body;
         const user=await userModel.findOne({"email" : email})
         const role=user.role
+        const name=user.username
         //console.log(user)
         if(user && user.password===password){
 
@@ -17,7 +18,7 @@ const checkUser=async(req,res)=>{
                 loginModel.create({"email": email,"password" : password})
             jwt.sign({user},secret,(err,token)=>{
                 if(!err)
-                    res.status(200).json({token,role})
+                    res.status(200).json({token,role,name})
                 else
                     res.status(404).send(false)
             })
@@ -31,7 +32,6 @@ const checkUser=async(req,res)=>{
         res.status(404).send(false)
     }
 }
-
 module.exports={
     checkUser
 }
