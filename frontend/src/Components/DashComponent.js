@@ -9,8 +9,19 @@ import './images/cartimg6.png'
 import './images/cartimg7.png'
 import './images/cartimg8.png'
 import 'bootstrap/dist/css/bootstrap.css';
+import { useNavigate } from 'react-router-dom';
 function DashComponent()
 {
+    const navigate=useNavigate()
+
+    const handleLogout=()=>{
+        localStorage.removeItem("token")
+        localStorage.removeItem("role")
+        localStorage.removeItem("email")
+        navigate("/")
+        return ;
+    }
+
     return(
         <>
         <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" /> 
@@ -22,8 +33,8 @@ function DashComponent()
             <li><a class="active" href="/home"><i class="bi bi-house"></i> Home</a></li>
             <li><a href="/contact"><i class="bi bi-telephone"></i> Contact</a></li>
             <li class="right"><a href="/cart"><i class="bi bi-cart4"> </i>Cart</a></li>
-            <li class="right"><a href="/order"><i class="bi bi-cart-check"></i> Orders</a></li>
-            <li class="right"><a href="/logout"><i class="bi bi-box-arrow-left"></i> Logout</a></li>
+            <li class="right"><a href="/orders"><i class="bi bi-cart-check"></i> Orders</a></li>
+            <li class="right"><button onClick={()=>handleLogout()} ><i class="bi bi-box-arrow-left"></i> Logout</button></li>
         </ul>
         <div className="name">
             <h1 className='tag'>Products</h1>

@@ -1,13 +1,13 @@
 import '../styles/HomeComponent.css';
 import './logo.png';
-import '../Components/images/cartimg1.png';
-import '../Components/images/cartimg2.png';
-import '../Components/images/cartimg3.png';
-import '../Components/images/cartimg4.png';
-import '../Components/images/cartimg5.png';
-import '../Components/images/cartimg6.png';
-import '../Components/images/cartimg7.png';
-import '../Components/images/cartimg8.png';
+import './images/cartimg1.png';
+import './images/cartimg2.png';
+import './images/cartimg3.png';
+import './images/cartimg4.png';
+import './images/cartimg5.png';
+import './images/cartimg6.png';
+import './images/cartimg7.png';
+import './images/cartimg8.png';
 import 'bootstrap/dist/css/bootstrap.css';
 import {useNavigate} from 'react-router-dom';
 function HomeComponent()
@@ -48,38 +48,38 @@ function HomeComponent()
 		        <i id="left" class="fa-solid fas fa-angle-left"></i> 
 		        <ul class="carousel"> 
 			    <li class="card"> 
-				<div class="img"><img src={require('../Components/images/cartimg8.png')} alt="" draggable="false"/> </div> 
+				<div class="img"><img src={require('./images/cartimg8.png')} alt="" draggable="false"/> </div> 
 				<h2> 
 					Lounge Chair
 				</h2> 
                 <button id="submitButton" onClick={handleClick}>Buy Now</button>
 			</li> 
 			<li class="card"> 
-				<div class="img"><img src={require('../Components/images/cartimg1.png')}
+				<div class="img"><img src={require('./images/cartimg1.png')}
 									alt="" draggable="false"/> </div> 
 				<h2>ArmChair</h2> 
                 <button id="submitButton" onClick={handleClick}>Buy Now</button>
 			</li> 
 			<li class="card"> 
-				<div class="img"><img src={require('../Components/images/cartimg5.png')}
+				<div class="img"><img src={require('./images/cartimg5.png')}
 									alt="" draggable="false"/> </div> 
 				<h2>L Shaped Sofa</h2> 
                 <button id="submitButton" onClick={handleClick}>Buy Now</button>
 			</li> 
 			<li class="card"> 
-				<div class="img"><img src={require('../Components/images/cartimg3.png')}
+				<div class="img"><img src={require('./images/cartimg3.png')}
 									alt="" draggable="false"/> </div> 
 				<h2>Accent ArmChair</h2> 
                 <button id="submitButton" onClick={handleClick}>Buy Now</button>
 			</li> 
 			<li class="card"> 
-				<div class="img"><img src={require('../Components/images/cartimg4.png')}
+				<div class="img"><img src={require('./images/cartimg4.png')}
 									alt="" draggable="false"/> </div> 
 				<h2>Chair</h2> 
                 <button id="submitButton" onClick={handleClick}>Buy Now</button>
 			</li> 
 			<li class="card"> 
-				<div class="img"><img src={require('../Components/images/cartimg2.png')}
+				<div class="img"><img src={require('./images/cartimg2.png')}
 									alt="" draggable="false"/> </div> 
 				<h2>Fabric Sofa Set</h2> 
                 <button id="submitButton" onClick={handleClick}>Buy Now</button>

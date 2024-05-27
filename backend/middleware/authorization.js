@@ -3,7 +3,9 @@ require('dotenv')
 const secret=process.env.SECRET
 
 const verifyToken= async (req,res,next)=>{
-    try{const token=req.headers.authorization.split(" ")[1]
+    try{
+        console.log(req.headers.authorization)
+        const token=req.headers.authorization.split(" ")[1]
     //console.log(req.headers)
     //console.log(token)
     jwt.verify(token,secret,(err,data)=>{
@@ -11,10 +13,11 @@ const verifyToken= async (req,res,next)=>{
         //console.log(err)
         if(!err){
             req.user=data.user
+            console.log(req.user)
             next()
         }
         else
-            res.status(300).json({"message" : "Not authorized"})
+            res.status(300).json({"message" : "Not athorized"})
     })}
     catch(error){
         res.status(404).json({"message" : "unable to verify"})

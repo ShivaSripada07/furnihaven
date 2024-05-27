@@ -8,9 +8,8 @@ const {
     placeOrder
 }=require('../controllers/order.controller')
 
-routes.get('/:id',getUserProducts)
 routes.post('/saveOrder',saveProduct)
-routes.get('/orders',getOrders)
+routes.get('/orders',getOrders) 
 routes.post('/placeOrder',placeOrder)
 
 module.exports=routes

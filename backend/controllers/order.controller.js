@@ -6,7 +6,7 @@ const productModel=require('../model/product.model')
 const getUserProducts= async (req,res)=>{
     try{
         const userId=req.params.id;
-        console.log(userId)
+        //console.log(userId)
         const orderProducts= await orderModel.find({"userId" : userId})
         if(orderProducts.length>0)
             res.status(200).json(orderProducts)
@@ -20,12 +20,14 @@ const getUserProducts= async (req,res)=>{
 
 const getOrders= async (req,res)=>{
     try{
+        console.log("hello")
         const userId =req.user.username;
+        console.log(req.user)
         const orders= await orderModel.find({"userId" : userId})
         if(orders.length>0)
             res.status(200).json(orders)
         else
-            res.status(404).json({"message" : "orders not placed"})
+            res.status(200).json(orders)
     }
     catch(error){
         console.error(error)
@@ -39,11 +41,11 @@ const saveProduct= async(req,res)=>{
         const cartItems= await cartModel.find({"userId" : userId})
         // console.log(cartItems)
         cartItems.forEach(async (item)=>{
-            const orderId=req.user.username;
+            const orderId=item.cartItemId;
             const productName=item.productName;
             const quantity =item.quantity;
             const price =item.price;
-            const status="Accepted";
+            const status="in orders";
             const totalPrice= parseInt(quantity) * parseInt(price);
             
             await orderModel.create({

@@ -1,6 +1,8 @@
 const express=require('express');
 const app=express();
 const jwt=require('jsonwebtoken')
+const cors=require('cors')
+app.use(cors())
 
 //Environmental variables
 require('dotenv').config()
@@ -32,9 +34,9 @@ app.use('/home',homeRoutes)
 app.use('/cart',verifyToken,cartRoutes)
 app.use('/login',loginRoutes)
 app.use('/admin',verifyToken,isAdmin,productRoutes)
-app.get('/',(req,res)=>{
-    res.status(200).send("Home page")
-})
+// app.get('/',(req,res)=>{
+//     res.status(200).send("Home page")
+// })
 
 //server connection
 app.listen(port,()=>{console.log(`server is listening at port ${port}`)})
