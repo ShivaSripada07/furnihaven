@@ -4,40 +4,6 @@
     margin-top: 2rem;
     margin-left: 3.5rem;
 }
-.products{
-    display: flex;
-    flex-direction: row;
-}
-.addupdate
-{
-    display: flex;
-    margin-top: 0.6rem;
-    margin-left: 4rem;
-}
-.productbtn
-{
-    margin-left: 50rem;
-    width: 8rem;
-    height: 3rem;
-    padding: 0.1rem;
-    background-color: #C73659;
-    color: #fff;
-    border: none;
-    border-radius: 0.8rem;
-    cursor: pointer;
-}
-.editbtn
-{
-    margin-left: 9.8rem;
-    width: 8rem;
-    height: 3rem;
-    padding: 0.1rem;
-    background-color: #C73659;
-    color: #fff;
-    border: none;
-    border-radius: 0.8rem;
-    cursor: pointer;
-}
 .btns
 {
     display: flex;
@@ -66,7 +32,7 @@
         border-radius: 0.4rem;
         cursor: pointer;
 }
-.buybtn:hover , .productbtn:hover,.cartbtn:hover , .editbtn:hover,.view:hover
+.buybtn:hover ,.cartbtn:hover 
 {
     background-color: #A91D3A;
 }

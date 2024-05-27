@@ -95,7 +95,7 @@ function HomeComponent()
   				data-mdb-ripple-init
   				className="btn text-white btn-floating m-1"
   				style={{ backgroundColor: '#3b5998' }}
-  				href="#!"
+  				href="http://www.facebook.com"
   				role="button"
 			>
   			<i className="fab fa-facebook-f"></i>
@@ -105,7 +105,7 @@ function HomeComponent()
   				data-mdb-ripple-init
   				className="btn text-white btn-floating m-1"
   				style={{ backgroundColor: '#55acee' }}
-  				href="#!"
+  				href="http://www.twitter.com"
   				role="button"
 			>
   				<i className="fab fa-twitter"></i>
@@ -115,7 +115,7 @@ function HomeComponent()
   				data-mdb-ripple-init
   				className="btn text-white btn-floating m-1"
   				style={{ backgroundColor: '#dd4b39' }}
-  				href="#!"
+  				href="http://www.google.com"
   				role="button"
 			>
   				<i className="fab fa-google"></i>
@@ -125,7 +125,7 @@ function HomeComponent()
   				data-mdb-ripple-init
   				className="btn text-white btn-floating m-1"
   				style={{ backgroundColor: "#ac2bac" }}
-  				href="#!"
+  				href="http://www.instagram.com"
   				role="button"
 			>
   			<i className="fab fa-instagram"></i>
@@ -135,7 +135,7 @@ function HomeComponent()
   				data-mdb-ripple-init
   				className="btn text-white btn-floating m-1"
   				style={{ backgroundColor: "#0082ca" }}
-  				href="#!"
+  				href="http://www.linkedin.com"
   				role="button"
 			>
   				<i className="fab fa-linkedin-in"></i>
@@ -145,7 +145,7 @@ function HomeComponent()
   				data-mdb-ripple-init
   				className="btn text-white btn-floating m-1"
   				style={{ backgroundColor: "#333333" }}
-  				href="#!"
+  				href="http://www.github.com"
   				role="button"
 			>
   				<i className="fab fa-github"></i>
@@ -155,7 +155,7 @@ function HomeComponent()
   	</div>
   <div className="text-center p-3" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
   © 2024 Copyright:
-  <a className="text-body" href="https://furnihaven.com/">FurniHaven.com</a>
+  <a className="text-body" href="http://localhost:3000/">FurniHaven.com</a>
 </div>
 </footer>
     </>

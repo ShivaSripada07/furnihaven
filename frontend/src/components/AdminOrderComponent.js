@@ -13,8 +13,7 @@ function AdminOrderComponent() {
         console.log(orders)
     };
     fetchData()
-    },[]);
-
+    },[orders]);
   return (
     <>
       <h1>ORDERS</h1>
@@ -24,7 +23,7 @@ function AdminOrderComponent() {
         {orders.map((item) => (
            
           <div className="item-ordered">
-            <img src={item.imageurl} alt="picture" className="item-image" />
+            <img src={item.imageurl} alt="productitem" className="item-image" />
             <div className="item-details">
               <h2 className="item-name">{item.productName}</h2>
               <p className="item-description">

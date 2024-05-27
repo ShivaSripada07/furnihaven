@@ -11,6 +11,8 @@ import OrderComponent from './Components/OrderComponent';
 import AdminOrderComponent from './Components/AdminOrderComponent';
 import PrivateRoute from './routes/PrivateRoute';
 import AdminPrivateRoute from './routes/AdminPrivateRoute';
+import AdminDashComponent from './Components/AdminDashComponent';
+import AddProductComponent from './Components/AddProductComponent';
 //import AuthProvider from './hooks/AuthProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -26,9 +28,10 @@ root.render(
                     <Route path='/dashboard' element={<DashComponent/>}/>
                     <Route path='/orders' element={<OrderComponent/>}/>
                     <Route element={<AdminPrivateRoute/>}>
-                        <Route path='/admindashboard' element={<DashComponent/>}/>
+                        <Route path='/admindashboard' element={<AdminDashComponent/>}/>
                         <Route path='/admin/orders' element={<AdminOrderComponent/>}/>
                     </Route>
+                <Route path='/admin/addProduct' element={<AddProductComponent/>}/>
                 </Route>
             </Routes>
     </BrowserRouter>

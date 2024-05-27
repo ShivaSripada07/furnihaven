@@ -16,6 +16,10 @@
 {
     font-family: "Mrs Eaves XL Serif", serif;
 }
+.pricetag
+{
+    font-size: 1.6rem;
+}
 .name
 {
     margin-top: 2rem;
@@ -37,6 +41,15 @@
 .decorator
 {
     width:100%;
+}
+.btntext
+{
+    color: white;
+}
+.logoutbtn
+{
+    border: none;
+    background: none;
 }
 .cartbtn
 {
