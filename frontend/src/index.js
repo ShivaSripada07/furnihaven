@@ -6,7 +6,8 @@ import LoginComponent from './Components/LoginComponent';
 import RegisterComponent from './Components/RegisterComponent';
 import ContactComponent from './Components/ContactComponent';
 import DashComponent from './Components/DashComponent';
-
+import AdminDashComponent from './Components/AdminDashComponent';
+import AddProductComponent from './Components/AddProductComponent';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
@@ -16,6 +17,8 @@ root.render(
                 <Route path="/signup" element={<RegisterComponent/>}/>
                 <Route path='/contact' element={<ContactComponent/>}/>
                 <Route path='/dashboard' element={<DashComponent/>}/>
+                <Route path='/admin' element={<AdminDashComponent/>}/>
+                <Route path='/addProduct' element={<AddProductComponent/>}/>
             </Routes>
     </BrowserRouter>
 );
