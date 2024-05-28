@@ -3,19 +3,41 @@ import '../styles/DashComponent.css'
 import { useState,useEffect } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
+import { useNavigate } from 'react-router-dom';
 function AdminDashComponent()
 {
+	const navigate=useNavigate();
     const [product,setProduct]=useState([])
     useEffect(() => {
       const fetchData=async ()=>{
           const response=await axios.get("http://localhost:3001/home")
           setProduct(response.data);
-          console.log(response.data)
-          console.log(product)
       };
       fetchData()
       },[product]);
 	  const name=localStorage.getItem("name");
+	  async function handleDelete(e)
+	  {
+		try{
+			await axios.delete(`http://localhost:3001/admin/delete/${e.target.value}`);
+		}
+		catch(err)
+		{
+			console.log(err);
+		}
+
+	  }
+	  function handleEdit(e)
+	  {
+		console.log(e.target.value);
+	  }
+	  const handleLogout=()=>{
+        localStorage.removeItem("token")
+        localStorage.removeItem("role")
+        localStorage.removeItem("email")
+        navigate("/")
+        return ;
+    }
     return(
         <>
         <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" /> 
@@ -29,13 +51,12 @@ function AdminDashComponent()
             <li class="right"><a href="/contact"><i class="bi bi-telephone"></i> Contact Us</a></li>
             <li><a href="/admin/addProduct"><i class="bi bi-bag-plus-fill"></i> ADD PRODUCT</a></li>
             <li class="right"><a href="/admin/orders"><i class="bi bi-list-ul"></i> Orders</a></li>
-            <li class="right"><a href="/logout"><i class="bi bi-box-arrow-left"></i> Logout</a></li>
+            <li class="right"><button className='logoutbtn' onClick={()=>handleLogout()} ><text className='btntext'><i class="bi bi-box-arrow-left"></i> Logout</text></button></li>
         </ul>
         <div className="name">
             <h1 className='tag'>PRODUCTS</h1>
         </div>
         <div className="cardgroup">
-            {console.log(product)}
             {product.map((item)=>(
                 <div class="card">
                     <img src={item.imageurl}  class="card-img-top" alt="productitem" width="4rem" height="240rem"/>
@@ -44,8 +65,8 @@ function AdminDashComponent()
                         <p class="card-text"><small>{item.description}</small></p>
                         <p className='pricetag'><b><small>INR {item.price}</small></b></p>
                         <div className="btns">
-                            <button id="submitButton" className="cartbtn"><i class="bi bi-pencil-square"></i> Edit</button>
-                            <button id="submitButton" className='buybtn'><i class="bi bi-trash"></i> Delete</button>
+                            <button id={item.productId} className="cartbtn" value={item.productId} onClick={handleEdit}><i class="bi bi-pencil-square"></i> Edit</button>
+                            <button id={item.productId} className='buybtn'value={item.productId} onClick={handleDelete}><i class="bi bi-trash"></i> Delete</button>
                         </div>
                     </div>
                 </div>

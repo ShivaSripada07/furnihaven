@@ -10,6 +10,11 @@
     flex-direction: row;
     column-gap: 2rem;
 }
+.logoutbtn
+{
+    border: none;
+    background: none;
+}
 .cartbtn
 {
         display: block;

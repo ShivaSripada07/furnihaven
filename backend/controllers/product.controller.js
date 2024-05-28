@@ -29,22 +29,23 @@ const productSave= async (req,res)=>{
     }
 }
 
-const productDelete= async (req,res)=>{
-    try{
-        const productId= req.params.id
-        
-        const product= await productModel.findOneAndDelete({"productId" : productId})
-        if(!product)
-            res.status(404).json({"message" : "product not found"})
-        else
-            res.status(200).json(product)
-        
+const productDelete = async (req, res) => {
+    try {
+      const productId = req.params.id;
+      if (!productId) {
+        return res.status(400).json({ "message": "Product ID is required" });
+      }
+      const product = await productModel.findOneAndDelete({ "productId": productId });
+      if (!product) {
+        return res.status(404).json({ "message": "Product not found" });
+      }
+      return res.status(200).json(product);
+  
+    } catch (error) {
+      console.error("Error deleting product:", error.message);
+      return res.status(500).json({ "message": "Failed to delete product" });
     }
-    catch(error){
-        res.status(300).json({"message" : "Failed to add product"})
-    }
-}
-
+  };
 const productEditData= async (req,res)=>{
     try{
         const productId= req.params.id
