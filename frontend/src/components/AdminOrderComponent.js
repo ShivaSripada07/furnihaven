@@ -3,7 +3,6 @@ import "./order.css";
 import axios from "axios";
 import "./secure.png";
 function AdminOrderComponent() {
-
     const [orders,setOrders]=useState([])
   useEffect(() => {
     const fetchData=async ()=>{
@@ -21,7 +20,6 @@ function AdminOrderComponent() {
       <div className="order-container">
         {console.log(orders)}
         {orders.map((item) => (
-           
           <div className="item-ordered">
             <img src={item.imageurl} alt="productitem" className="item-image" />
             <div className="item-details">

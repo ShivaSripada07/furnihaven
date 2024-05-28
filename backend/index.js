@@ -36,9 +36,5 @@ app.use('/cart',verifyToken,cartRoutes)
 app.use('/login',loginRoutes)
 app.use('/admin',verifyToken,isAdmin,productRoutes)
 app.use('/addProduct',adminRoutes)
-// app.get('/',(req,res)=>{
-//     res.status(200).send("Home page")
-// })
-
-//server connection
+app.use('/editProduct',adminRoutes)
 app.listen(port,()=>{console.log(`server is listening at port ${port}`)})

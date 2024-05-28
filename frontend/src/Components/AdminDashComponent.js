@@ -25,11 +25,10 @@ function AdminDashComponent()
 		{
 			console.log(err);
 		}
-
 	  }
 	  function handleEdit(e)
 	  {
-		console.log(e.target.value);
+		navigate(`/admin/productEdit/${e.target.value}`);
 	  }
 	  const handleLogout=()=>{
         localStorage.removeItem("token")
@@ -84,7 +83,6 @@ function AdminDashComponent()
 			>
   			<i className="fab fa-facebook-f"></i>
 			</a>
-
 			<a
   				data-mdb-ripple-init
   				className="btn text-white btn-floating m-1"
@@ -94,7 +92,6 @@ function AdminDashComponent()
 			>
   				<i className="fab fa-twitter"></i>
 			</a>
-
 			<a
   				data-mdb-ripple-init
   				className="btn text-white btn-floating m-1"
@@ -104,7 +101,6 @@ function AdminDashComponent()
 			>
   				<i className="fab fa-google"></i>
 			</a>
-
 	  		<a
   				data-mdb-ripple-init
   				className="btn text-white btn-floating m-1"
@@ -114,7 +110,6 @@ function AdminDashComponent()
 			>
   			<i className="fab fa-instagram"></i>
 			</a>
-
 			<a
   				data-mdb-ripple-init
   				className="btn text-white btn-floating m-1"
@@ -124,7 +119,6 @@ function AdminDashComponent()
 			>
   				<i className="fab fa-linkedin-in"></i>
 			</a>
-
 			<a
   				data-mdb-ripple-init
   				className="btn text-white btn-floating m-1"

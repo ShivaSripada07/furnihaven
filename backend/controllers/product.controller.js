@@ -61,7 +61,6 @@ const productEditData= async (req,res)=>{
         res.status(300).json({"message" : "Failed to add product"})
     }
 }
-
 const productEditSave= async (req,res)=>{
     try{
         const newProduct= req.body
@@ -75,11 +74,9 @@ const productEditSave= async (req,res)=>{
         res.status(300).json({"message" : "Failed to add product"})
     }
 }
-
 module.exports={
     getProducts,
     productSave,
     productDelete,
-    productEditData,
-    productEditSave
+    productEditSave,productEditData
 }

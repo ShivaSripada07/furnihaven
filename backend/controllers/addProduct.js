@@ -21,4 +21,19 @@ const addProduct = async (req, res) => {
         res.status(500).json({ error: "An error occurred while adding the product" });
     }
 };
-module.exports = { addProduct };
+const getProduct = async (req, res) => {
+    try {
+        const productId = req.params.id;
+        const product = await productModel.findOne({ "productId": productId });
+
+        if (!product) {
+            return res.status(404).json({ "message": "Product not found" });
+        }
+
+        return res.status(200).json(product);
+    } catch (error) {
+        return res.status(500).json({ "message": "Failed to get product", "error": error.message });
+    }
+};
+
+module.exports = { addProduct,getProduct };

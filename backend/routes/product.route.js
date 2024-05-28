@@ -6,7 +6,7 @@ const {
     productSave,
     productDelete,
     productEditData,
-    productEditSave
+    productEditSave,getProductById
 }=require('../controllers/product.controller')
 
 const {getUserProducts}=require('../controllers/order.controller')
@@ -17,5 +17,4 @@ routes.delete('/delete/:id',productDelete)
 routes.patch('/productEdit/:id',productEditSave)
 routes.get('/productEdit/:id',productEditData)
 routes.get('/orders',getUserProducts) 
-
 module.exports=routes
