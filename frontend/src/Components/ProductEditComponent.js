@@ -18,8 +18,17 @@ function ProductEditComponent()
         const fetchData = async () => {
             try 
             {
-                const response = await axios.get(`http://localhost:3001/editProduct/${params.id}`);
+                console.log(params.id)
+                const response = await axios.get(`http://localhost:3001/admin/productedit/${params.id}`,
+                {
+                    headers: {
+                      "Content-Type": "application/json",
+                      Authorization: `Bearer ${localStorage.getItem("token")}`,
+                    },
+                  }
+                );
                 const item = response.data;
+                console.log(item)
                 setId(item.productId);
                 setName(item.productName);
                 setUrl(item.imageurl);
@@ -43,7 +52,7 @@ function ProductEditComponent()
         setName(e.target.value);
     }
     function handlePrice(e)
-    {
+    {   console.log(e.target.value)
         setPrice(e.target.value);
     }
     function handleDescription(e)
@@ -61,14 +70,26 @@ function ProductEditComponent()
     async function handleClick()
     {
         try{
-            await axios.patch(`http://localhost:3001/admin/productEdit/${params.id}`,{"productId":id,"imageurl":url,"productName":name,"price":price,"description":description,"quantity":quantity});
+            const response=await axios.patch(`http://localhost:3001/admin/productedit/${params.id}`,{"productId":id,"imageurl":url,"productName":name,"price":price,"description":description,"quantity":quantity},
+            {
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+              }
+            );
+            if(response.status===200){
+                window.alert("Product Modified Successfully");
+                navigate('/admindashboard');
+            }
         }
         catch(err)
         {
+            window.alert("Product not Modified");
+            navigate("/admindashboard")
             console.log(err);
         }
-        window.alert("Product Modified Successfully");
-        navigate('/admindashboard');
+        
     }
     return(
         <>

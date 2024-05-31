@@ -15,12 +15,11 @@ const orderRoutes=require('./routes/order.route')
 const cartRoutes=require('./routes/cart.route')
 const loginRoutes=require('./routes/login.route')
 const homeRoutes=require('./routes/home.route')
-const adminRoutes=require('./routes/admin.route');
 const {verifyToken,isAdmin}=require('./middleware/authorization')
 
 //mongDB connection
 const mongoose=require('mongoose')
-mongoose.connect("mongodb+srv://shivasripada04:furnihaven@cluster0.ijswaim.mongodb.net/furnihaven")
+mongoose.connect("mongodb://127.0.0.1:27017/furniture")
 .then((res)=>{console.log("connected successfully")})
 .catch((err)=>{console.log(err)})
 
@@ -35,6 +34,6 @@ app.use('/home',homeRoutes)
 app.use('/cart',verifyToken,cartRoutes)
 app.use('/login',loginRoutes)
 app.use('/admin',verifyToken,isAdmin,productRoutes)
-app.use('/addProduct',adminRoutes)
-app.use('/editProduct',adminRoutes)
+//app.use('/addProduct',adminRoutes)
+//app.use('/editProduct',adminRoutes)
 app.listen(port,()=>{console.log(`server is listening at port ${port}`)})

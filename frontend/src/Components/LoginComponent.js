@@ -11,7 +11,8 @@ function LoginComponent()
     const [token,setToken]=useState()
     console.log(token);
     const handleLogin = async () => {   
-        const response = await axios.post("http://localhost:3001/login", {
+        try{
+          const response = await axios.post("http://localhost:3001/login", {
           email: document.getElementById("email").value,
           password: document.getElementById("password").value,
         });
@@ -23,6 +24,11 @@ function LoginComponent()
           navigate(response.data.role === "admin" ? '/admindashboard' : '/dashboard/');
         } else {
           navigate("/signup");
+        }
+        }
+        catch(error){
+          alert("User Does not exists")
+          navigate("/signup")
         }
       };
     return(

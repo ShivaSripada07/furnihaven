@@ -39,7 +39,14 @@ function AddProductComponent()
     async function handleClick()
     {
         try{
-            await axios.post(`http://localhost:3001/addProduct`,{"productId":id,"imageurl":url,"productName":name,"price":price,"description":description,"quantity":quantity});
+            await axios.post(`http://localhost:3001/admin/addproduct`,{"productId":id,"imageurl":url,"productName":name,"price":price,"description":description,"quantity":quantity},
+            {
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+              }
+            );
         }
         catch(err)
         {

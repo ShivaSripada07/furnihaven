@@ -11,10 +11,10 @@ const {
 
 const {getUserProducts}=require('../controllers/order.controller')
 
-routes.get('/',getProducts)
-routes.post('/addProduct',productSave)
+routes.post('/addproduct',productSave)
 routes.delete('/delete/:id',productDelete)
-routes.patch('/productEdit/:id',productEditSave)
-routes.get('/productEdit/:id',productEditData)
-routes.get('/orders',getUserProducts) 
+routes.patch('/productedit/:id',productEditSave)
+routes.get('/productedit/:id',productEditData)
+routes.get('/orders',getUserProducts)
+routes.get('/' ,getProducts)
 module.exports=routes

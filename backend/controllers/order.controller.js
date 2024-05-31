@@ -5,13 +5,12 @@ const productModel=require('../model/product.model')
 
 const getUserProducts= async (req,res)=>{
     try{
-        const userId=req.params.id;
-        //console.log(userId)
-        const orderProducts= await orderModel.find({"userId" : userId})
+        
+        const orderProducts= await orderModel.find({})
         if(orderProducts.length>0)
             res.status(200).json(orderProducts)
         else
-            res.status(404).json({"message" : "orders not placed"})
+            res.status(200).json({"message" : "orders not placed"})
     }
     catch(error){
         res.status(404).send(error)

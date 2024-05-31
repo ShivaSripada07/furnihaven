@@ -10,7 +10,12 @@ function AdminDashComponent()
     const [product,setProduct]=useState([])
     useEffect(() => {
       const fetchData=async ()=>{
-          const response=await axios.get("http://localhost:3001/home")
+          const response=await axios.get("http://localhost:3001/home",{
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${localStorage.getItem("token")}`,
+			  },
+		  })
           setProduct(response.data);
       };
       fetchData()
@@ -19,7 +24,12 @@ function AdminDashComponent()
 	  async function handleDelete(e)
 	  {
 		try{
-			await axios.delete(`http://localhost:3001/admin/delete/${e.target.value}`);
+			await axios.delete(`http://localhost:3001/admin/delete/${e.target.value}`,{
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+				  },
+			});
 		}
 		catch(err)
 		{

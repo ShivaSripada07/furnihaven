@@ -7,11 +7,13 @@ const secret=process.env.SECRET
 const checkUser=async(req,res)=>{
     try{
         const {email,password}=req.body;
+        console.log(req.body)
         const user=await userModel.findOne({"email" : email})
-        const role=user.role
-        const name=user.username
-        //console.log(user)
+
+        console.log(user)
         if(user && user.password===password){
+            const name=user.username
+            const role=user.role
 
             const existingUser= await loginModel.findOne({"email" : email})
             if(!existingUser)

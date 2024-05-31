@@ -2,17 +2,29 @@ import { useState, useEffect } from "react";
 import "./order.css";
 import axios from "axios";
 import "./secure.png";
+import { useNavigate } from "react-router-dom";
 function AdminOrderComponent() {
     const [orders,setOrders]=useState([])
+    const navigate=useNavigate()
   useEffect(() => {
     const fetchData=async ()=>{
-        const response=await axios.get("http://localhost:3001/orders")
+        try{
+          const response=await axios.get("http://localhost:3001/admin/orders",{
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        })
         setOrders(response.data);
         console.log(response.data)
         console.log(orders)
+        }
+        catch(error){
+          navigate("/admindashboard")
+        }
     };
     fetchData()
-    },[orders]);
+    },[]);
   return (
     <>
       <h1>ORDERS</h1>

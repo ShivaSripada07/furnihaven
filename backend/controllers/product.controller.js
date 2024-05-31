@@ -3,7 +3,7 @@ const productModel=require('../model/product.model')
 const getProducts=async(req,res)=>{
     try{
         const products= await productModel.find()
-        console.log(products)
+        //console.log(products)
         if(products.length>0)
         {
             res.status(200).json(products)
@@ -48,7 +48,9 @@ const productDelete = async (req, res) => {
   };
 const productEditData= async (req,res)=>{
     try{
+        console.log("req.params")
         const productId= req.params.id
+        //console.log("hiii",productId)
         
         const product= await productModel.findOne({"productId" : productId})
         if(!product)
@@ -64,9 +66,10 @@ const productEditData= async (req,res)=>{
 const productEditSave= async (req,res)=>{
     try{
         const newProduct= req.body
+        console.log(newProduct)
         const product =await productModel.findOneAndUpdate({"productId" : newProduct.productId },newProduct)
         if(!product)
-            res.status(404).json({"message" : "product not found"})
+            res.status(400).json({"message" : "product not found"})
         else
             res.status(200).json(product)
     }
