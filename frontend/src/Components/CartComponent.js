@@ -1,8 +1,10 @@
 import '../styles/CartComponent.css';
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 function CartComponent()
 {
+    const navigate=useNavigate();
     const [cart, setCart] = useState([]);
     const fetchData = async () => {
         try {
@@ -32,8 +34,34 @@ function CartComponent()
         });
         return total;
     };
-    const handleCheckout = () => {
-        console.log("Checkout button clicked!");
+
+    const handleCheckout = async () => {
+        const token = localStorage.getItem("token");
+        const username = localStorage.getItem("name");
+        try {
+            await axios.post(
+                'http://localhost:3001/order/saveOrder',
+                {}, 
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`
+                    },
+                    params: {
+                        "username": username
+                    }
+                }
+            );
+            navigate('/orders');
+        } catch (error) {
+            if (error.response) {
+                console.log('Error response:', error.response);
+            } else if (error.request) {
+                console.log('Error request:', error.request);
+            } else {
+                console.log('Error message:', error.message);
+            }
+        }
     };
     const handleDelete=async(cartItemId)=>
         {

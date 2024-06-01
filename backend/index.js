@@ -2,6 +2,7 @@ const express=require('express');
 const app=express();
 const jwt=require('jsonwebtoken')
 const cors=require('cors')
+
 app.use(cors())
 
 //Environmental variables
@@ -22,7 +23,6 @@ const mongoose=require('mongoose')
 mongoose.connect("mongodb+srv://shivasripada04:furnihaven@cluster0.ijswaim.mongodb.net/furnihaven")
 .then((res)=>{console.log("connected successfully")})
 .catch((err)=>{console.log(err)})
-
 
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))

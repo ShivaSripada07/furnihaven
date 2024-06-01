@@ -36,24 +36,18 @@ const getOrders= async (req,res)=>{
 
 const saveProduct= async(req,res)=>{
     try{
-        const userId=req.user.username;
+        const userId=req.query.username;
         const cartItems= await cartModel.find({"userId" : userId})
-        // console.log(cartItems)
         cartItems.forEach(async (item)=>{
             const orderId=item.cartItemId;
             const productName=item.productName;
-            const quantity =item.quantity;
+            const imageurl=item.imageurl;
             const price =item.price;
-            const status="in orders";
-            const totalPrice= parseInt(quantity) * parseInt(price);
-            
             await orderModel.create({
                 "orderId" : orderId,
                 "userId" : userId,
                 "productName" : productName,
-                "quantity" : quantity,
-                "totalPrice" : totalPrice,
-                "status" : status,
+                "imageurl":imageurl,
                 "price" : price,
             })
         })
@@ -68,8 +62,6 @@ const saveProduct= async(req,res)=>{
         res.status(404).send(error)
     }
 }
-
-
 const placeOrder= async(req,res)=>{
     try{
         const userId=req.user.username;

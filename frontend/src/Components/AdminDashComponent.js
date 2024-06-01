@@ -63,7 +63,7 @@ function AdminDashComponent()
             <li class="right"><button className='logoutbtn' onClick={()=>handleLogout()} ><text className='btntext'><i class="bi bi-box-arrow-left"></i> Logout</text></button></li>
         </ul>
         <div className="name">
-            <h1 className='tag'>PRODUCTS</h1>
+            <h1 className='admintag'>PRODUCTS</h1>
         </div>
         <div className="cardgroup">
             {product.map((item)=>(

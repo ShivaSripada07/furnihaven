@@ -18,6 +18,11 @@
 {
     margin-top: 300px;
 }
+@media (min-width: 992px) {
+    .container-lg, .container-md, .container-sm, .container {
+        min-width: 100%;
+    }
+}
 ul.navbar {
     list-style-type: none;
     margin: 0;
