@@ -50,8 +50,6 @@ const productEditData= async (req,res)=>{
     try{
         console.log("req.params")
         const productId= req.params.id
-        //console.log("hiii",productId)
-        
         const product= await productModel.findOne({"productId" : productId})
         if(!product)
             res.status(404).json({"message" : "product not found"})
@@ -66,7 +64,7 @@ const productEditData= async (req,res)=>{
 const productEditSave= async (req,res)=>{
     try{
         const newProduct= req.body
-        console.log(newProduct)
+        //console.log(newProduct)
         const product =await productModel.findOneAndUpdate({"productId" : newProduct.productId },newProduct)
         if(!product)
             res.status(400).json({"message" : "product not found"})

@@ -14,6 +14,7 @@ import AdminPrivateRoute from './routes/AdminPrivateRoute';
 import AdminDashComponent from './Components/AdminDashComponent';
 import AddProductComponent from './Components/AddProductComponent';
 import ProductEditComponent from './Components/ProductEditComponent';
+import CartComponent from './Components/CartComponent';
 //import AuthProvider from './hooks/AuthProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -25,6 +26,7 @@ root.render(
                 <Route path='/login' element={<LoginComponent/>}/>
                 <Route path="/signup" element={<RegisterComponent/>}/>
                 <Route path='/contact' element={<ContactComponent/>}/>
+                <Route path='/cart' element={<CartComponent/>}/>
                 <Route element={<PrivateRoute/>}>
                     <Route path='/dashboard' element={<DashComponent/>}/>
                     <Route path='/orders' element={<OrderComponent/>}/>

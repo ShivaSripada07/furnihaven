@@ -21,7 +21,7 @@ const getOrders= async (req,res)=>{
     try{
         console.log("hello")
         const userId =req.user.username;
-        console.log(req.user)
+        //console.log(req.user)
         const orders= await orderModel.find({"userId" : userId})
         if(orders.length>0)
             res.status(200).json(orders)

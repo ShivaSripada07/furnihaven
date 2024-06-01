@@ -21,7 +21,7 @@ function LoginComponent()
           localStorage.setItem("role", response.data.role);
           localStorage.setItem("name",response.data.name);
           setToken(response.data.token);
-          navigate(response.data.role === "admin" ? '/admindashboard' : '/dashboard/');
+          navigate(response.data.role === "admin" ? '/admindashboard' : '/dashboard');
         } else {
           navigate("/signup");
         }

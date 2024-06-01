@@ -8,7 +8,7 @@ const {
 }=require('../controllers/cart.controller')
 
 routes.get('/',showCart)
-routes.post('/:id/:quantity',addToCart)
+routes.post('/:id',addToCart)
 routes.delete('/:id',deleteCartItem)
 
 module.exports=routes

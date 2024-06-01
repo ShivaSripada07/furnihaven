@@ -3,9 +3,8 @@ const productModel = require('../model/product.model')
 
 const showCart=async(req,res)=>{
     try{
-        const userId=req.user.username
+        const userId=req.query.userId
         const cartItems= await cartModel.find({"userId" : userId})
-        //console.log(cartItems)
         if(cartItems.length>0){
             res.status(200).json(cartItems)
         }
@@ -17,25 +16,23 @@ const showCart=async(req,res)=>{
         res.status(300).json({"message" : "Failed to fetch cart items"})
     }
 }
-
 const addToCart= async (req,res)=>{
     try{
 
         const cartItemId= req.params.id;
-        const quantity=req.params.quantity
-        const userId=req.user.username;
-        //console.log(cartItemId,quantity,userId)
+        //const quantity=req.params.quantity;
+        const userId=req.body.username;
         const product= await productModel.findOne({"productId" : cartItemId})
         const productName=product.productName
         const price=product.price
-        console.log(product.productName)
-
+        const imageurl=product.imageurl
         await cartModel.create({
             "cartItemId" : cartItemId,
             "userId" : userId,
             "productName" : productName,
-            "quantity" : quantity,
-            "price" : price
+            "quantity" : 1,
+            "price" : price,
+            "imageurl":imageurl
         })
         res.status(200).json({"message" : "Item added to cart"})
         
@@ -47,12 +44,13 @@ const addToCart= async (req,res)=>{
 
 const deleteCartItem= async (req,res)=>{
     try{
-        const cartItemId= req.params.id
-        const userId=req.user.username
+        const cartItemId= req.params.id;
+        const userId=req.query.userId;
         const item= await cartModel.findOneAndDelete({"cartItemId" : cartItemId,"userId" : userId})
-        console.log(item)
         if(!item)
-            res.status(404).json({"message" : "product not found"})
+            {
+                res.status(404).json({"message" : "product not found"})              
+            }
         else
             res.status(200).json(item)
         
