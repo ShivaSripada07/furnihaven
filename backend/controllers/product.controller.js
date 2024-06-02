@@ -48,7 +48,7 @@ const productDelete = async (req, res) => {
   };
 const productEditData= async (req,res)=>{
     try{
-        console.log("req.params")
+        //console.log("req.params")
         const productId= req.params.id
         const product= await productModel.findOne({"productId" : productId})
         if(!product)

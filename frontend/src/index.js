@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import HomeComponent from './Components/HomeComponent';
 import LoginComponent from './Components/LoginComponent';
@@ -16,7 +15,6 @@ import AddProductComponent from './Components/AddProductComponent';
 import ProductEditComponent from './Components/ProductEditComponent';
 import CartComponent from './Components/CartComponent';
 //import AuthProvider from './hooks/AuthProvider';
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     //<AuthProvider>

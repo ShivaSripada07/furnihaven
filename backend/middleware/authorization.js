@@ -4,7 +4,7 @@ const secret=process.env.SECRET
 
 const verifyToken= async (req,res,next)=>{
     try{
-        console.log(req.headers.authorization)
+        //console.log(req.headers.authorization)
         const token=req.headers.authorization.split(" ")[1]
     //console.log(req.headers)
     //console.log(token)
@@ -13,7 +13,7 @@ const verifyToken= async (req,res,next)=>{
         //console.log(err)
         if(!err){
             req.user=data.user
-            console.log(req.user)
+            //console.log(req.user)
             next()
         }
         else
@@ -25,7 +25,7 @@ const verifyToken= async (req,res,next)=>{
 }
 
 const isAdmin=(req,res,next)=>{
-    console.log(req.user)
+    //console.log(req.user)
     const role=req.user.role
     if(role.toLowerCase()=="admin")
         next()

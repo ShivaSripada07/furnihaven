@@ -19,7 +19,7 @@ function RegisterComponent() {
       };
 
       const response = await axios.post("http://localhost:3001/signup", user);
-      console.log(response)
+      //console.log(response)
       if (response.status === 200) {
         alert("Registered Successfully");
         navigate("/login");

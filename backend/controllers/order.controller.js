@@ -19,7 +19,7 @@ const getUserProducts= async (req,res)=>{
 
 const getOrders= async (req,res)=>{
     try{
-        console.log("hello")
+        //console.log("hello")
         const userId =req.user.username;
         //console.log(req.user)
         const orders= await orderModel.find({"userId" : userId})
@@ -65,12 +65,12 @@ const saveProduct= async(req,res)=>{
 const placeOrder= async(req,res)=>{
     try{
         const userId=req.user.username;
-        console.log(userId)
+        //console.log(userId)
         await orderModel.updateMany({"userId":userId},{$set : {"status" : "ordered"}})
         res.status(200).json({"message" : "orders placed"})
     }
     catch(error){
-        console.log(error)
+        //console.log(error)
         res.status(404).send({"message" : "error in placing order"})
     }
 }
