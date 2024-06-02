@@ -36,7 +36,7 @@ function OrderComponent()
                 <img src={require('./logo.png')} alt="logo" width="60px" height="50px" />
                 <h1>FurniHaven</h1>
             </div>
-                <div className="container">
+            <div className="userordercontainer">
             <div className='headordertag'>
                 <a href='http://localhost:3000/dashboard' className='orderhref'><h2><i class="bi bi-arrow-left"></i></h2></a>
                 <h2 className='myordertag'><b>My Orders</b></h2>

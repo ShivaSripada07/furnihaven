@@ -1,4 +1,4 @@
-.container {
+.userordercontainer {
     display: flex;
     flex-direction: column;
     width: 65%;
@@ -20,7 +20,7 @@
 .orderhref:active  {color:#000;}
 .myordertag
 {
-    margin-left: 23rem;
+    margin-left: 20rem;
 }
 .myorder-items {
     display: flex;

@@ -27,21 +27,24 @@ function AdminOrderComponent() {
     },[]);
   return (
     <>
-      <h1>ORDERS</h1>
-      <hr />
-      <div className="order-container">
-        {console.log(orders)}
+        <div className="header">
+		<search>
+  			<form>
+    			<input placeholder="Search" className='searchbox'/> <i class="bi bi-search"></i>
+  			</form>
+		</search>
+			<img src={require('./logo.png')} className="logo" alt="logo" width="60px" height="50px"/>
+            <h1 className="title">FurniHaven</h1>
+        </div>
+      <div className="adminorder-container">
         {orders.map((item) => (
-          <div className="item-ordered">
-            <img src={item.imageurl} alt="productitem" className="item-image" />
-            <div className="item-details">
-              <h2 className="item-name">{item.productName}</h2>
-              <p className="item-description">
-                {item.description}
-              </p>
-              <p className="item-price">Price: &#8377;{item.totalPrice}</p>
-              <p className="item-quantity">Quantity: {item.quantity}</p>
-              <p className="item-status">status: {item.status}</p>
+          <div className="adminitem-ordered">
+            <img src={item.imageurl} alt="productitem" className="adminorder-image" />
+            <div className="adminorder-details">
+              <h2 className="adminorder-name">{item.productName}</h2>
+              <p className="adminorder-price">Price: &#8377;{item.price}</p>
+              <p className="adminorder-quantity">Quantity: 1</p>
+              <p className="adminorder-status">status: Order Placed</p>
             </div>
           </div>
         ))}
@@ -49,5 +52,4 @@ function AdminOrderComponent() {
     </>
   );
 }
-
 export default AdminOrderComponent;
