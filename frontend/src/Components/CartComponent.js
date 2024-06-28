@@ -102,7 +102,7 @@ function CartComponent()
                 <img src={item.imageurl} alt={item.productName}/>
             <div className="cart-item-details">
                 <small><b>{item.productName}</b></small>
-                <small>${item.price}</small>
+                <small><i class="bi bi-currency-rupee"></i>{item.price}</small>
                 <small style={{color:"grey"}}>Free Shipping</small>
             </div>
             <div>
@@ -116,15 +116,15 @@ function CartComponent()
                 <h3>Amount</h3>
                 <div className="cart-summary-item">
                     <p>Item total</p>
-                    <p>${calculateTotal().toFixed(2)}</p>
+                    <p><i class="bi bi-currency-rupee"></i>{calculateTotal().toFixed(2)}</p>
                 </div>
                 <div className="cart-summary-item">
                     <p>Shipping fee</p>
-                    <p>$0.00</p>
+                    <p><i class="bi bi-currency-rupee"></i>0.00</p>
                 </div>
                 <div className="cart-summary-item">
                     <p>Total</p>
-                    <p>${calculateTotal()}</p>
+                    <p><i class="bi bi-currency-rupee"></i>{calculateTotal()}</p>
                 </div>
                 <button className="checkout-button" onClick={handleCheckout}>Checkout</button>
             </div>

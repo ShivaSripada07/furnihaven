@@ -32,6 +32,7 @@ function DashComponent() {
 
     const handleCart = async (e) => {
         try {
+            console.log(e.target.id);
             await axios.post(`http://localhost:3001/cart/${e.target.id}`, { "username": localStorage.getItem("name") }, {
                 headers: {
                     "Content-Type": "application/json",
@@ -45,17 +46,17 @@ function DashComponent() {
         }
     };
 
-    const handleBuy = (e) => {
-        navigate('/orders');
-    };
+    //const handleBuy = (e) => {
+      //  navigate('/orders');
+    //};
 
     return (
         <>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
             <div className="headertag">
-                <h2 style={{ marginRight: "17.5rem", marginLeft: "1rem", alignItems: "flex-end" }}>
+                <h4 style={{ marginRight: "17.5rem", marginLeft: "1rem", alignItems: "flex-end" }}>
                     <i className="bi bi-person-fill"></i> Welcome {name}
-                </h2>
+                </h4>
                 <img src={require('./logo.png')} alt="logo" width="60px" height="50px" />
                 <h1 className="title">FurniHaven</h1>
             </div>
@@ -83,7 +84,7 @@ function DashComponent() {
                             <p className='pricetag'><b><small>INR {item.price}</small></b></p>
                             <div className="btns">
                                 <button id={item.productId} className="cartbtn" onClick={handleCart}>Add To Cart</button>
-                                <button id={item.productId} className='buybtn' onClick={handleBuy}>Buy Now</button>
+                                <button id={item.productId} className='buybtn' onClick={handleCart}>Buy Now</button>
                             </div>
                         </div>
                     </div>

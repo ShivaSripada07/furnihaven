@@ -36,6 +36,9 @@ function AdminOrderComponent() {
 			<img src={require('./logo.png')} className="logo" alt="logo" width="60px" height="50px"/>
             <h1 className="title">FurniHaven</h1>
         </div>
+        <div style={{marginLeft:"20px"}} className="backnavigate">
+          <h4><button className="backnavigate"><i class="bi bi-arrow-left"></i></button></h4>
+        </div>
       <div className="adminorder-container">
         {orders.map((item) => (
           <div className="adminitem-ordered">
