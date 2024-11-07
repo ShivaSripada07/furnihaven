@@ -20,7 +20,7 @@ root.render(
     //<AuthProvider>
     <BrowserRouter>
             <Routes>
-                <Route path='/' exact element={<HomeComponent/>}/>
+                <Route path='/' exact index element={<HomeComponent/>}/>
                 <Route path='/login' element={<LoginComponent/>}/>
                 <Route path="/signup" element={<RegisterComponent/>}/>
                 <Route path='/contact' element={<ContactComponent/>}/>

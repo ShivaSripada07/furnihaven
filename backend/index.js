@@ -20,7 +20,7 @@ const {verifyToken,isAdmin}=require('./middleware/authorization')
 
 //mongDB connection
 const mongoose=require('mongoose')
-mongoose.connect("mongodb+srv://shivasripada04:furnihaven@cluster0.ijswaim.mongodb.net/furnihaven")
+mongoose.connect(process.env.mongo_url)
 .then((res)=>{console.log("connected successfully")})
 .catch((err)=>{console.log(err)})
 
